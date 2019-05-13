@@ -22,10 +22,11 @@ const CardBody = ({data}) => {
         <section>
             <H1>{data.name}</H1>
             <IMG src={data.avatar_url} alt="Avatar" />
+            <h3>{data.login}</h3>
             <p>{data.bio}</p>
-            <p><strong>{data.login}</strong></p>
-            <p><A href={data.blog}>Website</A></p>
-            <p><A href={data.html_url}>Github site</A></p>
+            <p>Followers: {data.followers} | Following: {data.following}</p>
+            <p><A href={data.html_url} target="_blank">Github site</A></p>
+            <p>Repos: {data.public_repos}</p>
         </section>
     );
 };
