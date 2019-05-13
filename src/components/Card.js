@@ -8,7 +8,7 @@ class Card extends React.Component {
 
     componentDidMount() {
         // Hard code user name for initial display
-        const user = 'DeannaMarbeck';
+        const user = 'Ronyonka';
         this.props.fetchData(user);
     }
     onNameSubmit = (userName) => {
