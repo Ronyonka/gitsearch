@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Formik} from 'formik';
 import './dashboard.css';
 import * as Yup from 'yup';
@@ -9,7 +10,9 @@ import {connect} from 'react-redux';
 class DashboardComponent extends React.Component {
 
     render() {
+
       const { avatar_url , login , public_repos } = this.props.user;
+
         return (
             <div>
                 <Formik
@@ -63,19 +66,27 @@ class DashboardComponent extends React.Component {
                     }}
                 </Formik>
                 <div className="output">
+
                     
                     {JSON.stringify(this.props.user, null, 2)}
+
                 </div>
             </div>
         );
     }
 }
 
+DashboardComponent.propTypes = {
+  user: PropTypes.object.isRequired
+};
+
 const mapStateToProps = (state) => {
     return {
         user: state.user
     };
 };
+
+
 
 const mapDispatchToProps = (dispatch) => {
     return {
