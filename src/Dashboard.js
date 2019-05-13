@@ -9,6 +9,7 @@ import {connect} from 'react-redux';
 class DashboardComponent extends React.Component {
 
     render() {
+      const { avatar_url , login , public_repos } = this.props.user;
         return (
             <div>
                 <Formik
@@ -38,7 +39,7 @@ class DashboardComponent extends React.Component {
                                 <label htmlFor="name"><b>GitHub Name</b></label>
                                 <input
                                     id="name"
-                                    placeholder="Enter your username"
+                                    placeholder="Enter username"
                                     type="text"
                                     value={values.name}
                                     onChange={handleChange}
@@ -62,6 +63,7 @@ class DashboardComponent extends React.Component {
                     }}
                 </Formik>
                 <div className="output">
+                    
                     {JSON.stringify(this.props.user, null, 2)}
                 </div>
             </div>
