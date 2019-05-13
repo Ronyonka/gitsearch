@@ -23,6 +23,7 @@ const CardBody = ({data}) => {
             <H1>{data.name}</H1>
             <IMG src={data.avatar_url} alt="Avatar" />
             <p>{data.bio}</p>
+            <p><strong>{data.login}</strong></p>
             <p><A href={data.blog}>Website</A></p>
             <p><A href={data.html_url}>Github site</A></p>
         </section>
