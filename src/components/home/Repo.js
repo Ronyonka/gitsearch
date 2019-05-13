@@ -10,7 +10,7 @@ const Repo = ({ repo }) => {
 					{repo.name}
 				</p>
 				<p>
-					<a href={repo.html_url} className="black-text">{repo.html_url}</a>
+					<a href={repo.html_url} target="_blank" className="black-text">View Repo</a>
 				</p>
 				<p><i className="fa fa-star material-icons" aria-hidden="true" /> {repo.stargazers_count} {"  |  "}<i className="fa fa-eye material-icons" aria-hidden="true" /> {repo.watchers_count}</p>
 			</li>
