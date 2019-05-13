@@ -11,6 +11,8 @@ class DashboardComponent extends React.Component {
 
     render() {
 
+      const { avatar_url , login , public_repos } = this.props.user;
+
         return (
             <div>
                 <Formik
@@ -64,9 +66,10 @@ class DashboardComponent extends React.Component {
                     }}
                 </Formik>
                 <div className="output">
-                    <ul>
-                      {JSON.stringify(this.props.user, null, 2)}
-                    </ul>
+
+                    
+                    {JSON.stringify(this.props.user, null, 2)}
+
                 </div>
             </div>
         );
