@@ -2,9 +2,11 @@
   "name": "gitsearch",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ronyonka.github.io/gitsearch",
   "dependencies": {
     "axios": "^0.18.0",
     "formik": "^1.5.4",
+    "gh-pages": "^2.0.1",
     "history": "^4.9.0",
     "materialize-css": "^1.0.0-rc.2",
     "react": "^16.8.6",
@@ -21,6 +23,8 @@
     "yup": "^0.27.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

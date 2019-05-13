@@ -25,8 +25,8 @@ const CardBody = ({data}) => {
             <h3>{data.login}</h3>
             <p>{data.bio}</p>
             <p>Followers: {data.followers} | Following: {data.following}</p>
-            <p><A href={data.html_url} target="_blank">Github site</A></p>
             <p>Repos: {data.public_repos}</p>
+            <p><A href={data.html_url} target="_blank">Github site</A></p>
         </section>
     );
 };
