@@ -1,28 +1,31 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import {userReducer} from './reducer';
-import {applyMiddleware, combineReducers, createStore} from 'redux';
-import createSagaMiddleware from 'redux-saga';
-import {Provider} from 'react-redux';
-import {watchLoadUserData} from './sagas';
+import { render } from 'react-dom';
+import { Router } from 'react-router';
+import { createBrowserHistory } from 'history'
+import 'materialize-css/dist/css/materialize.min.css';
+import { Provider } from 'react-redux';
 
-// initializing saga middleware for the store
-const sagaMiddleware = createSagaMiddleware();
+import routes from './routes';
+import configureStore from './store/configureStore';
+import { loadRepos } from './actions/reposAction';
 
-// creating the store with our reducer
-const store = createStore(combineReducers({
-    user: userReducer
-}), applyMiddleware(sagaMiddleware));
+let currentValue;
+function handleChange() {
+	let previousValue = currentValue;
+	currentValue = store.getState().user;
 
-// triggering watchLoadUserData when there is a LOAD_USER_DATA
-sagaMiddleware.run(watchLoadUserData);
+	if (previousValue !== currentValue) {
+		store.dispatch(loadRepos(store.getState().user));
+	}
+}
 
-// wrapping the App in a Provider to work with React and Redux
-ReactDOM.render(
-    <Provider store={store}>
-        <App/>
-    </Provider>,
-    document.getElementById('root')
+const store = configureStore();
+store.dispatch(loadRepos(store.getState().user));
+store.subscribe(handleChange);
+
+render(
+	<Provider store={store}>
+		<Router history={createBrowserHistory} routes={routes} />
+	</Provider>,
+	document.getElementById('app')
 );

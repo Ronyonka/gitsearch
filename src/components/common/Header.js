@@ -1,14 +1,15 @@
 import React from 'react';
-import { Link, IndexLink } from 'react-router';
+// import { NavLink } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 	return (
 		<nav className="nav-wrapper red darken-3">
 			<ul className="left active">
 				<li>
-					<IndexLink to="/">
+					<Link to="/">
 						<i className="fa fa-home material-icons" aria-hidden="true" />
-					</IndexLink>
+					</Link>
 				</li>
 				<li>
 					<Link to="/about">
