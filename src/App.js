@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-import './App.css';
-import {Dashboard} from './Dashboard';
+import PropTypes from 'prop-types';
 
+import Header from './components/common/Header';
 
 class App extends Component {
-
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <Dashboard />
-        </header>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div className="grey darken-2  center-align">
+				<Header />
+				{this.props.children}
+			</div>
+		);
+	}
 }
+
+App.propTypes = {
+	children: PropTypes.object.isRequired
+};
 
 export default App;
